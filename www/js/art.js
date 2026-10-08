@@ -319,7 +319,7 @@
   function exitDoor(ctx, x, y, open, t) {
     R(ctx, x - 2, y - 12, 26, 9, C.black);
     R(ctx, x - 1, y - 11, 24, 7, open ? '#1a8a2a' : '#5a0a0a');
-    Font.text(ctx, 'EXIT', x + 11, y - 10, { color: open ? '#ffffff' : '#c08080', align: 'center' });
+    PixelFont.text(ctx, 'EXIT', x + 11, y - 10, { color: open ? '#ffffff' : '#c08080', align: 'center' });
     R(ctx, x - 2, y - 2, 26, 46, C.black);
     if (open) {
       const pulse = 0.75 + 0.25 * Math.sin(t * 10);

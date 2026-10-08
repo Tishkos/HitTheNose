@@ -84,20 +84,25 @@ The endpoint must return JSON in this shape. The label then switches to **LIVE**
 
 ## Art
 
-- The game's characters (the man at the table, generals, politicians, the devil, babies, people) are drawn in code as pixel art (`www/js/art.js`). The man is a fictional character, so the game does not depict any real person.
-- `www/assets/political-satire.jpg` is shown at launch and from the title screen.
-- `www/assets/best-score-award.jpg` is shown on a new best score.
-- `design/stats-reference.jpg` is the visual reference the STATS window was built from.
+- **Style:** the game is drawn in the style of the HIT THE NOSE poster. It has inked caricatures, painted shading, a red-lit devil, the baby conveyor, a yellow-lit EXIT with silhouetted crowds, a taped fist, film grain and a worn poster frame. The type is Anton for body text and Bungee for the 3D titles. Both fonts are bundled under the SIL Open Font License, in `www/fonts/`.
+- **How it's drawn:** everything is drawn in code (`www/js/paint.js`) at your screen's resolution, so it stays sharp on every phone.
+- **The man:** he is an invented caricature. The game does not depict any real person.
+- **Your own painted art:** you can drop in hand-painted or generated art for any layer. See [docs/ART_GUIDE.md](docs/ART_GUIDE.md).
+- **Disclaimer image:** `www/assets/political-satire.jpg` is shown at launch and from the title screen.
+- **Award image:** `www/assets/best-score-award.jpg` is shown on a new best score.
+- **STATS window:** it keeps the pixel-art look of `design/stats-reference.jpg`.
 
 ## Project layout
 
 ```
 www/
   index.html, css/style.css, manifest.webmanifest
-  js/font.js    5x7 arcade bitmap font + 3D title lettering
+  js/type.js    poster typography (Anton / Bungee, 3D extruded titles)
+  js/paint.js   painted poster-style renderer + optional art overrides
   js/audio.js   synthesised music loop (gets brighter as people escape) + SFX + laughter
-  js/art.js     procedural pixel art
-  js/stats.js   STATS window
+  js/font.js, js/art.js, js/stats.js   pixel-art STATS window
+  fonts/        bundled OFL fonts
+  assets/art/   optional painted art overrides (art-manifest.js)
   js/game.js    rules, game loop, screens, touch/keyboard input
 tests/smoke.mjs headless Playwright test: plays exact hits, a bust, BLOW, a full win, STATS
 capacitor.config.json, package.json

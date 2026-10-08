@@ -116,10 +116,10 @@
       const d = this.data;
       R(ctx, 0, 0, Art.W, Art.H, '#080404');
       ctx.drawImage(Art.backdrop(), 0, 26, 240, 26, 0, 0, 240, 26);
-      Font.title(ctx, 'HIT THE NOSE', 120, 6, { size: 2, depth: 2 });
+      PixelFont.title(ctx, 'HIT THE NOSE', 120, 6, { size: 2, depth: 2 });
       R(ctx, 70, 30, 100, 20, C.black);
       ctx.strokeStyle = '#2ec5e8'; ctx.strokeRect(70.5, 30.5, 99, 19);
-      Font.text(ctx, 'STATS', 120, 34, { size: 2, color: C.yellow, align: 'center', shadow: '#a01010' });
+      PixelFont.text(ctx, 'STATS', 120, 34, { size: 2, color: C.yellow, align: 'center', shadow: '#a01010' });
       R(ctx, 30, 38, 34, 2, C.red); R(ctx, 30, 42, 34, 2, C.red);
       R(ctx, 176, 38, 34, 2, C.red); R(ctx, 176, 42, 34, 2, C.red);
 
@@ -140,48 +140,48 @@
           R(ctx, sx + Math.cos(a) * rr, sy + Math.sin(a) * rr * 0.7, 2, 2, hot ? '#ff3a1a' : i % 3 ? '#ffd21f' : '#ff8a1a');
         }
       }
-      Font.text(ctx, 'PLAYING NOW', 10, 166, { color: C.cyan });
-      Font.text(ctx, fmt(d.playingNow), 80, 163, { size: 2, color: C.yellow });
+      PixelFont.text(ctx, 'PLAYING NOW', 10, 166, { color: C.cyan });
+      PixelFont.text(ctx, fmt(d.playingNow), 80, 163, { size: 2, color: C.yellow });
       R(ctx, 10, 176, 120, 1, C.cyan);
       if (d.demo) {
-        Font.text(ctx, 'DEMO STATS', 230, 166, { color: C.cyan, align: 'right' });
+        PixelFont.text(ctx, 'DEMO STATS', 230, 166, { color: C.cyan, align: 'right' });
         R(ctx, 170, 176, 60, 1, C.cyan);
       } else {
         const blink = Math.floor(t * 2) % 2;
         if (blink) R(ctx, 196, 167, 4, 4, '#ff2020');
-        Font.text(ctx, 'LIVE', 230, 166, { color: '#ff4040', align: 'right' });
+        PixelFont.text(ctx, 'LIVE', 230, 166, { color: '#ff4040', align: 'right' });
       }
 
       // top countries
       panel(ctx, 4, 186, 232, 98);
       for (let i = 0; i < 16; i++) R(ctx, 5, 187 + i, 230, 1, i < 8 ? '#a01010' : '#7a0a0a');
-      Font.text(ctx, 'TOP COUNTRIES', 120, 188, { size: 2, color: C.yellow, align: 'center', shadow: '#000' });
+      PixelFont.text(ctx, 'TOP COUNTRIES', 120, 188, { size: 2, color: C.yellow, align: 'center', shadow: '#000' });
       d.topCountries.slice(0, 5).forEach((c, i) => {
         const y = 205 + i * 15;
         R(ctx, 14, y - 2, 13, 12, '#e01818');
-        Font.text(ctx, i + 1, 20, y, { color: C.cream, align: 'center' });
-        Font.text(ctx, c.name.toUpperCase().slice(0, 14), 40, y, { color: C.yellow });
-        Font.text(ctx, fmt(c.players), 224, y, { color: C.yellow, align: 'right' });
+        PixelFont.text(ctx, i + 1, 20, y, { color: C.cream, align: 'center' });
+        PixelFont.text(ctx, c.name.toUpperCase().slice(0, 14), 40, y, { color: C.yellow });
+        PixelFont.text(ctx, fmt(c.players), 224, y, { color: C.yellow, align: 'right' });
         if (i < 4) for (let x = 12; x < 228; x += 3) R(ctx, x, y + 11, 1, 1, '#1f6f86');
       });
 
       // players + avg play time
       panel(ctx, 4, 288, 114, 52);
-      Font.text(ctx, 'PLAYERS', 61, 292, { color: C.cyan, align: 'center' });
+      PixelFont.text(ctx, 'PLAYERS', 61, 292, { color: C.cyan, align: 'center' });
       for (let i = 0; i < 3; i++) {
         const px = 9 + i * 8, py = i === 1 ? 307 : 310;
         R(ctx, px + 2, py, 4, 4, C.cyan); R(ctx, px, py + 5, 8, 6, C.cyan);
       }
-      Font.text(ctx, fmt(d.players), 79, 314, { size: 2, color: C.yellow, align: 'center' });
+      PixelFont.text(ctx, fmt(d.players), 79, 314, { size: 2, color: C.yellow, align: 'center' });
       panel(ctx, 122, 288, 114, 52);
-      Font.text(ctx, 'AVG. PLAY TIME', 179, 292, { color: C.cyan, align: 'center' });
+      PixelFont.text(ctx, 'AVG. PLAY TIME', 179, 292, { color: C.cyan, align: 'center' });
       ctx.strokeStyle = C.cyan; ctx.beginPath(); ctx.arc(140, 318, 9, 0, 6.283); ctx.stroke();
       R(ctx, 139, 311, 2, 8, C.cyan); R(ctx, 139, 317, 6, 2, C.cyan);
-      Font.text(ctx, fmtTime(d.avgPlayTimeSec), 194, 314, { size: 2, color: C.yellow, align: 'center' });
+      PixelFont.text(ctx, fmtTime(d.avgPlayTimeSec), 194, 314, { size: 2, color: C.yellow, align: 'center' });
 
       // downloads pie
       panel(ctx, 4, 344, 232, 78);
-      Font.text(ctx, 'DOWNLOADS', 166, 348, { color: C.cyan, align: 'center' });
+      PixelFont.text(ctx, 'DOWNLOADS', 166, 348, { color: C.cyan, align: 'center' });
       const segs = d.downloadsByRegion, total = segs.reduce((s, x) => s + x.value, 0) || 1;
       const cx = 48, cy = 383, ro = 35, ri = 23;
       const bounds = []; let acc = 0;
@@ -193,18 +193,18 @@
         const col = (bounds.find((b) => a <= b[0]) || bounds[bounds.length - 1])[1];
         R(ctx, cx + x, cy + y, 2, 2, col);
       }
-      Font.text(ctx, 'TOTAL', cx + 1, cy - 9, { color: C.cream, align: 'center' });
-      Font.text(ctx, fmt(d.downloads), cx + 1, cy + 1, { color: C.yellow, align: 'center' });
+      PixelFont.text(ctx, 'TOTAL', cx + 1, cy - 9, { color: C.cream, align: 'center' });
+      PixelFont.text(ctx, fmt(d.downloads), cx + 1, cy + 1, { color: C.yellow, align: 'center' });
       segs.forEach((s, i) => {
         const y = 362 + i * 11;
         R(ctx, 112, y, 7, 7, s.color);
-        Font.text(ctx, s.label.toUpperCase(), 124, y, { color: C.cream });
+        PixelFont.text(ctx, s.label.toUpperCase(), 124, y, { color: C.cream });
       });
 
       // back button
       R(ctx, 2, 2, 22, 18, C.black);
       ctx.strokeStyle = C.yellow; ctx.strokeRect(2.5, 2.5, 21, 17);
-      Font.text(ctx, '<', 13, 8, { color: C.yellow, align: 'center' });
+      PixelFont.text(ctx, '<', 13, 8, { color: C.yellow, align: 'center' });
       return { back: [0, 0, 30, 24] };
     },
   };

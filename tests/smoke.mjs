@@ -10,7 +10,7 @@ try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require(
 const root = path.resolve(new URL('../www', import.meta.url).pathname);
 const out = path.resolve(new URL('./out', import.meta.url).pathname);
 fs.mkdirSync(out, { recursive: true });
-const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.webmanifest': 'application/json' };
+const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.webmanifest': 'application/json', '.woff2': 'font/woff2' };
 const server = http.createServer((req, res) => {
   const f = path.join(root, decodeURIComponent(req.url.split('?')[0]).replace(/\/$/, '/index.html'));
   if (!f.startsWith(root) || !fs.existsSync(f)) { res.writeHead(404); return res.end(); }

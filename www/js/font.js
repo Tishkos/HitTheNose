@@ -1,4 +1,4 @@
-// 5x7 bitmap arcade font. Each glyph is 7 rows of 5 bits.
+// 5x7 bitmap arcade font (used by the pixel-art STATS window).
 (function () {
   const G = {
     A: [0x0E, 0x11, 0x11, 0x1F, 0x11, 0x11, 0x11], B: [0x1E, 0x11, 0x11, 0x1E, 0x11, 0x11, 0x1E],
@@ -88,5 +88,5 @@
     ctx.drawImage(face, px, y);
   }
 
-  window.Font = { text, title, measure };
+  window.PixelFont = { text, title, measure };
 })();
