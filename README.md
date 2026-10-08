@@ -10,6 +10,8 @@ people escape through the EXIT.
 
 ## How to play
 
+The full gameplay, rules, numbers and requirements checklist are in [docs/GAME_DESIGN.md](docs/GAME_DESIGN.md).
+
 | Action | Points | Keys |
 |---|---|---|
 | **PUNCH** | +5 | `1` / `J` / `←` |
