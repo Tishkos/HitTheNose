@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#080404">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="HIT THE NOSE - a one-screen satirical arcade game. Stop the next line. Break the machine. Get people out.">
+  <title>HIT THE NOSE</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Point statsEndpoint at a JSON endpoint to show live STATS (see README).
+    // While it is null the STATS window shows clearly labelled DEMO STATS.
+    window.HTN_CONFIG = { statsEndpoint: null };
+  </script>
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game" aria-label="Hit the Nose game"></canvas>
+  </div>
+
+  <div id="disclaimer" class="overlay">
+    <div class="card">
+      <img src="assets/political-satire.jpg" alt="Political satire: this is a fictional work. Characters, situations and events are exaggerated, invented or used metaphorically for satirical purposes.">
+      <button id="disclaimer-ok">I UNDERSTAND</button>
+    </div>
+  </div>
+
+  <div id="award" class="overlay" hidden>
+    <div class="card">
+      <img src="assets/best-score-award.jpg" alt="Best score award">
+      <div id="award-score"></div>
+      <button id="award-ok">CONTINUE</button>
+    </div>
+  </div>
+
+  <script src="js/font.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "HIT THE NOSE",
+  "short_name": "HIT THE NOSE",
+  "description": "A one-screen satirical arcade game. Stop the next line. Get people out.",
+  "start_url": ".",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#080404",
+  "theme_color": "#080404",
+  "icons": [{ "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

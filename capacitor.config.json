@@ -1,0 +1,8 @@
+{
+  "appId": "com.hitthenose.game",
+  "appName": "HIT THE NOSE",
+  "webDir": "www",
+  "backgroundColor": "#080404",
+  "android": { "backgroundColor": "#080404" },
+  "ios": { "contentInset": "never", "backgroundColor": "#080404" }
+}
